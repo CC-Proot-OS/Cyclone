@@ -1,0 +1,5 @@
+[package]
+type="bin"
+addr="https://raw.githubusercontent.com/CC-Proot-OS/CycloneRepo/main/bake.lua"
+ver=1
+depends=[]
