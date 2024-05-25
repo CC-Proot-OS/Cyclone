@@ -1,5 +1,5 @@
 [package]
 type="bin"
 addr="https://raw.githubusercontent.com/CC-Proot-OS/Cyclone/main/cyclone.lua"
-ver=1
+ver=2
 depends=[]
