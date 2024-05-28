@@ -1,4 +1,3 @@
-package.path = package.path .. ";/usr/lib/?;/usr/lib/?.lua;/usr/lib/?/init.lua"
 local toml = require("toml")
 local f = fs.open("/etc/repo.ltn","r")
 local repos = textutils.unserialize(f.readAll())
@@ -92,7 +91,7 @@ local function install(pki)
     if isIns(pki) then
         io.stdout:write(pki.." ["..isIns(pki).."]".." is installed\n")
     elseif pk then
-        for key, value in ipairs(pk.depends) do
+        for key, value in ipairs(pk.depends or {}) do
             if isIns(value) then
             else
                 install(value)
@@ -120,7 +119,7 @@ local function update(pki)
     if ((isIns(pki)or 0) >= (pk.ver or 0)) then
         io.stdout:write(pki.." ["..isIns(pki).."]".." is latest version\n")
     elseif isIns(pki) then
-        for key, value in ipairs(pk.depends) do
+        for key, value in ipairs(pk.depends or {}) do
             if (isIns(value)or 0) >= (pkgs[value].ver or 0) then
             else
                 update(value)
