@@ -1,3 +1,4 @@
+package.path = package.path .. ";/usr/lib/?;/usr/lib/?.lua;/usr/lib/?/init.lua"
 local toml = require("toml")
 local f = fs.open("/etc/repo.ltn","r")
 local repos = textutils.unserialize(f.readAll())
